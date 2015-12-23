@@ -1,181 +1,215 @@
 <style type="text/css" media="screen">
-    .imageblock .content img {
-        max-width: 900px;
-        max-height: 300px;
-    }
-    .deck h3 {
-        display: block !important;
-        margin-bottom:8px;
-        margin-top:5px;
-    }
-    .listingblock {
-        margin:8px;
-    }
-    .pull-bottom {
-        position:relative;
-        bottom:1em;
-    }
+  .imageblock .content img {
+    max-width: 900px;
+    max-height: 300px;
+  }
 
-    /* Admonition Blocks */
-    .admonitionblock td.icon [class^="fa icon-"] {
-        font-size: 2.5em;
-        text-shadow: 1px 1px 2px rgba(0,0,0,.5);
-        cursor: default;
-    }
-    .admonitionblock td.icon .icon-note:before {
-        content: "\f05a";
-        color: #19407c;
-    }
-    .admonitionblock td.icon .icon-tip:before {
-        content: "\f0eb";
-        text-shadow: 1px 1px 2px rgba(155,155,0,.8);
-        color: #111;
-    }
-    .admonitionblock td.icon .icon-warning:before {
-        content: "\f071";
-        color: #bf6900;
-    }
-    .admonitionblock td.icon .icon-caution:before {
-        content: "\f06d";
-        color: #bf3400;
-    }
-    .admonitionblock td.icon .icon-important:before {
-        content: "\f06a";
-        color: #bf0000;
-    }
-    .admonitionblock > table {
-        border-collapse: separate;
-        border: 0;
-        background: none;
-        width:100%;
-    }
-    .admonitionblock > table td.icon {
-        text-align: center;
-        width: 80px;
-    }
-    .admonitionblock > table td.icon img {
-        max-width: none;
-    }
-    .admonitionblock > table td.icon .title{
-        font-weight: bold;
-        text-transform: uppercase;
-    }
-    .admonitionblock > table td.content {
-        padding-left: 1.125em;
-        padding-right: 1.25em;
-        border-left: 1px solid #ddddd8;
-        color: rgba(0,0,0,.6);
-    }
-    .admonitionblock > table td.content>:last-child>:last-child { 
-        margin-bottom: 0;
-    }
+  .deck h3 {
+    display: block !important;
+    margin-bottom: 8px;
+    margin-top: 5px;
+  }
 
-    /* kbd */
-    .asciidoc kbd {
-        display: inline-block;
-        color: rgba(0,0,0, 1);
-        font-size: .75em;
-        line-height: 1.4;
-        background-color: #f7f7f7;
-        border: 1px solid #ccc;
-        -webkit-border-radius: 3px;
-        border-radius: 3px;
-        -webkit-box-shadow: 0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;
-        box-shadow: 0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;
-        margin: -.15em .15em 0 .15em;
-        padding: .2em .6em .2em .5em;
-        vertical-align: middle;
-        white-space: nowrap;
-    }
-    .asciidoc .keyseq kbd:first-child {
-        margin-left:0;
-    }
-    .asciidoc .keyseq kbd:last-child {
-        margin-right:0;
-    }
+  .listingblock {
+    margin: 8px;
+  }
 
-    /* Tables */
-    table thead {
-        background:#f7f8f7;
-    }
-    table thead tr th, table thead tr td {
-        padding:.5em .625em .625em;
-        color:rgba(0, 0, 0, .8);
-        text-align:left
-    }
-    table tr th, table tr td {
-        padding:.5625em .625em;
-        font-size:inherit;
-        color:rgba(0, 0, 0, .8)
-    }
-    table tr.even, table tr.alt, table tr:nth-of-type(even) {
-        background:#f8f8f7
-    }
-    table thead tr th, table tbody tr td, table tr td {
-        display: table-cell;
-        line-height:1.6
-    }
-    table.tableblock {
-        max-width:100%;
-        border-collapse:separate
-    }
-    table.tableblock td > .paragraph:last-child p>p:last-child, table.tableblock th>p:last-child, table.tableblock td>p:last-child {
-        margin-bottom:0
-    }
-    table.spread {
-        width:100%
-    }
-    table.tableblock, th.tableblock, td.tableblock {
-        border:0 solid #dedede
-    }
-    th.halign-left, td.halign-left {
-        text-align:left
-    }
-    th.halign-right, td.halign-right {
-        text-align:right
-    }
-    th.halign-center, td.halign-center {
-        text-align:center
-    }
-    th.valign-top, td.valign-top {
-        vertical-align:top
-    }
-    th.valign-bottom, td.valign-bottom {
-        vertical-align:bottom
-    }
-    th.valign-middle, td.valign-middle {
-        vertical-align:middle
-    }
-    table thead th {
-        font-size: 1.2em;
-    }
-    tbody tr th  {
-        background: #f7f8f7;
-    }
-    p.tableblock > code:only-child {
-        background:none;
-        padding:0
-    }
+  .pull-bottom {
+    position: relative;
+    bottom: 1em;
+  }
+
+  /* Admonition Blocks */
+  .admonitionblock td.icon [class^="fa icon-"] {
+    font-size: 2.5em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
+    cursor: default;
+  }
+
+  .admonitionblock td.icon .icon-note:before {
+    content: "\f05a";
+    color: #19407c;
+  }
+
+  .admonitionblock td.icon .icon-tip:before {
+    content: "\f0eb";
+    text-shadow: 1px 1px 2px rgba(155, 155, 0, .8);
+    color: #111;
+  }
+
+  .admonitionblock td.icon .icon-warning:before {
+    content: "\f071";
+    color: #bf6900;
+  }
+
+  .admonitionblock td.icon .icon-caution:before {
+    content: "\f06d";
+    color: #bf3400;
+  }
+
+  .admonitionblock td.icon .icon-important:before {
+    content: "\f06a";
+    color: #bf0000;
+  }
+
+  .admonitionblock > table {
+    border-collapse: separate;
+    border: 0;
+    background: none;
+    width: 100%;
+  }
+
+  .admonitionblock > table td.icon {
+    text-align: center;
+    width: 80px;
+  }
+
+  .admonitionblock > table td.icon img {
+    max-width: none;
+  }
+
+  .admonitionblock > table td.icon .title {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .admonitionblock > table td.content {
+    padding-left: 1.125em;
+    padding-right: 1.25em;
+    border-left: 1px solid #ddddd8;
+    color: rgba(0, 0, 0, .6);
+  }
+
+  .admonitionblock > table td.content > :last-child > :last-child {
+    margin-bottom: 0;
+  }
+
+  /* kbd */
+  .asciidoc kbd {
+    display: inline-block;
+    color: rgba(0, 0, 0, 1);
+    font-size: .75em;
+    line-height: 1.4;
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, .2), 0 0 0 .1em white inset;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, .2), 0 0 0 .1em #fff inset;
+    margin: -.15em .15em 0 .15em;
+    padding: .2em .6em .2em .5em;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+
+  .asciidoc .keyseq kbd:first-child {
+    margin-left: 0;
+  }
+
+  .asciidoc .keyseq kbd:last-child {
+    margin-right: 0;
+  }
+
+  /* Tables */
+  table thead {
+    background: #f7f8f7;
+  }
+
+  table thead tr th, table thead tr td {
+    padding: .5em .625em .625em;
+    color: rgba(0, 0, 0, .8);
+    text-align: left
+  }
+
+  table tr th, table tr td {
+    padding: .5625em .625em;
+    font-size: inherit;
+    color: rgba(0, 0, 0, .8)
+  }
+
+  table tr.even, table tr.alt, table tr:nth-of-type(even) {
+    background: #f8f8f7
+  }
+
+  table thead tr th, table tbody tr td, table tr td {
+    display: table-cell;
+    line-height: 1.6
+  }
+
+  table.tableblock {
+    max-width: 100%;
+    border-collapse: separate
+  }
+
+  table.tableblock td > .paragraph:last-child p > p:last-child, table.tableblock th > p:last-child, table.tableblock td > p:last-child {
+    margin-bottom: 0
+  }
+
+  table.spread {
+    width: 100%
+  }
+
+  table.tableblock, th.tableblock, td.tableblock {
+    border: 0 solid #dedede
+  }
+
+  th.halign-left, td.halign-left {
+    text-align: left
+  }
+
+  th.halign-right, td.halign-right {
+    text-align: right
+  }
+
+  th.halign-center, td.halign-center {
+    text-align: center
+  }
+
+  th.valign-top, td.valign-top {
+    vertical-align: top
+  }
+
+  th.valign-bottom, td.valign-bottom {
+    vertical-align: bottom
+  }
+
+  th.valign-middle, td.valign-middle {
+    vertical-align: middle
+  }
+
+  table thead th {
+    font-size: 1.2em;
+  }
+
+  tbody tr th {
+    background: #f7f8f7;
+  }
+
+  p.tableblock > code:only-child {
+    background: none;
+    padding: 0
+  }
 </style>
 <article class="guide asciidoc">
-    <carousel class="deck container-fluid">
-        <!--slide class="row-fluid">
+  <carousel class="deck container-fluid">
+    <!--slide class="row-fluid">
             <div class="col-sm-3">
-                <h3><%= doctitle(:sanitize => true) || (attr 'untitled-label') || 'Neo4j GraphGist'%></h3>
+                <h3><%= doctitle(:sanitize => true) || (attr 'untitled-label') || 'Neo4j GraphGist' %></h3>
                 <p class="lead">Information</p>
                 <!dl>
                     <%
-                    [:description, :keywords, :author, :copyright].each do |key|
-                    if attr? key %><dt><%= key %>"</dt><dd><%= attr key %></dd><% end %>
+     [:description, :keywords, :author, :copyright].each do |key|
+       if attr? key %><dt><%= key %>"</dt><dd><%= attr key %></dd>
+        <% end %>
                     <% end %>
                 </dl>
             </div>
             <div class="col-sm-9">
                 <figure>
-                    <img style="width:300px" src="<%= attr :image%>"/>
+                    <img style="width:300px" src="<%= attr :image %>"/>
                 </figure>
             </div>
         </slide-->
-        <%= content %>
-    </carousel>
+    <%= content %>
+  </carousel>
 </article>
