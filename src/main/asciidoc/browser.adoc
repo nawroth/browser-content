@@ -1,5 +1,3 @@
-:experimental:
-
 == Get Started
 
 Start by typing `:play intro` into the command-line and pressing kbd:[Enter].
@@ -50,17 +48,19 @@ m|:help keys
 |===
 
 
-== Built in Guides
+== Built-in Guides
 
 If you want to learn more first, click on any of the helpful links shown after startup: these are quick guides that introduce the different concepts.
 You find more helpful links in the left sidebar in the "Information" tab, with the `(i)`.
 
-* **Intro** - a guided tour of Neo4j browser `:play intro`
-* **Concepts** - GraphDB 101 `:play concepts`
-* **Cypher** - query language `:play cypher`
-* **The Movie Graph** - a mini graph model with use-cases `:play movie graph`
-* **The Northwind Database** - the classic demo database with import instructions & use-case queries `:play northwind graph`
-* **Custom Guides** - starting with Neo4j 2.3 you can use `:play <url>` to play a custom guide, e.g. `:play http://guides.neo4j.com/intro/create.html` from the fundamentals training.
+[horizontal]
+Intro:: a guided tour of Neo4j browser [runnable]`:play intro`
+Concepts:: GraphDB 101 `:play concepts`
+Cypher:: query language `:play cypher`
+The Movie Graph:: a mini graph model with use-cases `:play movie graph`
+The Northwind Database:: the classic demo database with import instructions & use-case queries `:play northwind graph`
+Custom Guides:: starting with Neo4j 2.3 you can use `:play <url>` to play a custom guide, for example
+  `:play http://guides.neo4j.com/intro/create.html` from the fundamentals training.
 
 Import our sample movie graph by entering `:play movie graph`.
 
@@ -190,11 +190,12 @@ image::http://dev.assets.neo4j.com.s3.amazonaws.com/wp-content/uploads/style_she
 
 == Configuration
 
-* since Neo4j 2.3 there is a config drawer on the left (with the cog), no need for the `:config` command anymore
+* since Neo4j 2.3 there is a config drawer on the left (with the cog icon:cog[]), no need for the `:config` command
+anymore
 * you can retrieve the current configuration with `:config`
 * the individual settings are configured with:
-** `:config maxNeighbours:100` - maxiumum number of neighbours for a node
-** `:config maxRows:100` - maximum number of rows for the tabular result
+** `:config maxNeighbours:100` -- maxiumum number of neighbours for a node
+** `:config maxRows:100` -- maximum number of rows for the tabular result
 
 
 == Executing REST requests
@@ -210,7 +211,12 @@ To execute a Cypher statement you post to the transaction Cypher endpoint like t
 
 [source, javascript]
 ----
-:POST /db/data/transaction/commit {"statements":[
-     {"statement":"MATCH (m:Movie)  WHERE m.title={title} RETURN m.title, m.released, labels(m)",
-      "parameters":{"title":"Cloud Atlas"}}]}
+:POST /db/data/transaction/commit {
+  "statements":[
+    {
+      "statement":"MATCH (m:Movie) WHERE m.title={title} RETURN m.title, m.released, labels(m)",
+      "parameters":{
+        "title":"Cloud Atlas"
+      }
+    }]}
 ----

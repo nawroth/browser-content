@@ -19,6 +19,55 @@
     bottom: 1em;
   }
 
+  /* Runnable content */
+
+  article.asciidoc p > code.runnable:before {
+    content: "\f144";
+    color: #428bca;
+    font-family: FontAwesome;
+    padding-right: 4px;
+  }
+
+  /* Labeled lists */
+
+  .hdlist > .title {
+    line-height: 1.45;
+    color: #7a2518;
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: .25em;
+  }
+
+  .hdlist > table, .colist > table {
+    border: 0;
+    background: none;
+  }
+
+  .hdlist > table > tbody > tr, .colist > table > tbody > tr {
+    background: none;
+  }
+
+  td.hdlist1, td.hdlist2 {
+    vertical-align: top;
+    padding: 0 .625em;
+  }
+
+  td.hdlist1 {
+    font-weight: bold;
+    padding-bottom: 1.25em;
+  }
+
+  article.asciidoc div.hdlist table tr.even, article.asciidoc div.hdlist table tr.alt, article.asciidoc div.hdlist
+  table tr:nth-of-type(even) {
+    background: none;
+  }
+
+  /* Lists */
+
+  article.asciidoc div.ulist > ul div.ulist > ul {
+    list-style-type: circle;
+  }
+
   /* Admonition Blocks */
   .admonitionblock td.icon [class^="fa icon-"] {
     font-size: 2.5em;
@@ -77,6 +126,7 @@
     padding-left: 1.125em;
     padding-right: 1.25em;
     border-left: 1px solid #ddddd8;
+    font-size: 1.1539em;
     color: rgba(0, 0, 0, .6);
   }
 
