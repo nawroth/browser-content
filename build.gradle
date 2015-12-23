@@ -1,4 +1,3 @@
-import org.asciidoctor.groovydsl.AsciidoctorExtensions
 import org.asciidoctor.Asciidoctor
 import org.asciidoctor.OptionsBuilder
 import org.asciidoctor.SafeMode
@@ -7,12 +6,10 @@ buildscript {
     ext {
         jrubyVersion = '1.7.23'
         asciidoctorjVersion = '1.5.3.2'
-        asciidoctorGroovyDslVersion = '1.0.0.Alpha1'
     }
 
     dependencies {
         classpath "org.asciidoctor:asciidoctorj:$asciidoctorjVersion"
-        classpath "org.asciidoctor:asciidoctorj-groovy-dsl:$asciidoctorGroovyDslVersion"
         classpath "org.jruby:jruby-complete:$jrubyVersion"
     }
 
