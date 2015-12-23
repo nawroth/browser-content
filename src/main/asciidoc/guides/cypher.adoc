@@ -1,7 +1,8 @@
 [[cypher]]
-=== Cypher
+== Cypher
 
-Neo4j's graph query language
+[abstract]
+Neo4j's graph query language.
 
 Neo4j's Cypher language is purpose built for working with graph data.
 
@@ -10,16 +11,17 @@ Neo4j's Cypher language is purpose built for working with graph data.
 * declarative, describing what to find, not how to find it
 
 [[create]]
-=== CREATE
+== CREATE
 
-Create a node
+[abstract]
+Create a node.
 
 Let's use Cypher to generate a small social graph.
 
-code,pre-scrollable,code,runnable--------------------------------------------------------------
-code,pre-scrollable,code,runnable
+[source, cypher, role='code pre-scrollable runnable']
+----
 CREATE (ee:Person { name: "Emil", from: "Sweden", klout: 99 })
---------------------------------------------------------------
+----
 
 * `CREATE` clause to create data
 * `()` parenthesis to indicate a node
@@ -27,16 +29,17 @@ CREATE (ee:Person { name: "Emil", from: "Sweden", klout: 99 })
 * `{}` brackets to add properties to the node
 
 [[match]]
-=== MATCH
+== MATCH
 
-Finding nodes
+[abstract]
+Finding nodes.
 
 Now find the node representing Emil:
 
-code,pre-scrollable,code,runnable---------------------------------------------------
-code,pre-scrollable,code,runnable
+[source, cypher, role='code pre-scrollable runnable']
+----
 MATCH (ee:Person) WHERE ee.name = "Emil" RETURN ee;
----------------------------------------------------
+----
 
 * `MATCH` clause to specify a pattern of nodes and relationships
 * `(ee:Person)` a single node pattern with label 'Person' which will
@@ -46,14 +49,15 @@ assign matches to the variable 'ee'
 * `RETURN` clause used to request particular results
 
 [[create-more]]
-=== CREATE more
+== CREATE more
 
-Nodes and relationships
+[abstract]
+Nodes and relationships.
 
-`CREATE`clauses can create many nodes and relationships at once.
+`CREATE` clauses can create many nodes and relationships at once.
 
-code,pre-scrollable,code,runnable------------------------------------------------------------------------
-code,pre-scrollable,code,runnable
+[source, cypher, role='code pre-scrollable runnable']
+----
 MATCH (ee:Person) WHERE ee.name = "Emil"
 CREATE (js:Person { name: "Johan", from: "Sweden", learn: "surfing" }),
 (ir:Person { name: "Ian", from: "England", title: "author" }),
@@ -63,20 +67,21 @@ CREATE (js:Person { name: "Johan", from: "Sweden", learn: "surfing" }),
 (js)-[:KNOWS]->(ir),(js)-[:KNOWS]->(rvb),
 (ir)-[:KNOWS]->(js),(ir)-[:KNOWS]->(ally),
 (rvb)-[:KNOWS]->(ally)
-------------------------------------------------------------------------
+----
 
 [[pattern-matching]]
-=== Pattern matching
+== Pattern matching
 
-Describe what to find in the graph
+[abstract]
+Describe what to find in the graph.
 
 For instance, a pattern can be used to find Emil's friends:
 
-code,pre-scrollable,code,runnable-----------------------------------------
-code,pre-scrollable,code,runnable
+[source, cypher, role='code pre-scrollable runnable']
+----
 MATCH (ee:Person)-[:KNOWS]-(friends)
 WHERE ee.name = "Emil" RETURN ee, friends
------------------------------------------
+----
 
 * `MATCH`clause to describe the pattern from known Nodes to found Nodes
 * `(ee)`starts the pattern with a Person (qualified by WHERE)
@@ -84,42 +89,45 @@ WHERE ee.name = "Emil" RETURN ee, friends
 * `(friends)`will be bound to Emil's friends
 
 [[recommend]]
-=== Recommend
+== Recommend
 
-Using patterns
+[abstract]
+Using patterns.
 
 Pattern matching can be used to make recommendations. Johan is learning
 to surf, so he may want to find a new friend who already does:
 
-code,pre-scrollable,code,runnable----------------------------------------------------
-code,pre-scrollable,code,runnable
+[source, cypher, role='code pre-scrollable runnable']
+----
 MATCH (js:Person)-[:KNOWS]-()-[:KNOWS]-(surfer)
 WHERE js.name = "Johan" AND surfer.hobby = "surfing"
 RETURN DISTINCT surfer
-----------------------------------------------------
+----
 
 * `()`empty parenthesis to ignore these nodes
 * `DISTINCT`because more than one path will match the pattern
 * `surfer`will contain Allison, a friend of a friend who surfs
 
 [[analyze]]
-=== Analyze
+== Analyze
 
-Using the visual query plan
+[abstract]
+Using the visual query plan.
 
 Understand how your query works by prepending `EXPLAIN`  or  `PROFILE`:
 
-code,pre-scrollable,code,runnable-------------------------------------------------------
-code,pre-scrollable,code,runnable
+[source, cypher, role='code pre-scrollable runnable']
+----
 PROFILE MATCH (js:Person)-[:KNOWS]-()-[:KNOWS]-(surfer)
 WHERE js.name = "Johan" AND surfer.hobby = "surfing"
 RETURN DISTINCT surfer
--------------------------------------------------------
+----
 
 [[live-cypher-warnings]]
-=== Live Cypher warnings
+== Live Cypher warnings
 
-Identify query problems in real time
+[abstract]
+Identify query problems in real time.
 
 As you type, the query editor notifies you about deprecated features and
 potentially expensive queries.
@@ -127,22 +135,22 @@ potentially expensive queries.
 image:images/screen_cypher_warn.png[image]
 
 [[next-steps]]
-=== Next steps
+== Next steps
 
 Start your application using Cypher to create and query graph data. Use
 the REST API to monitor the database. In special cases, consider a
 plugin.
 
 [[keep-getting-started]]
-=== Keep getting started
+== Keep getting started
 
-* Intro - a guided tour
-* Concepts - GraphDB 101
-* The Movie Graph - create the movie graph
-* Northwind Graph - from RDBMS to graph
+* Intro -- a guided tour
+* Concepts -- GraphDB 101
+* The Movie Graph -- create the movie graph
+* Northwind Graph -- from RDBMS to graph
 
 [[reference]]
-=== Reference
+== Reference
 
 * http://neo4j.com/developer/guide-importing-data-and-etl/[Full
 Northwind import example]

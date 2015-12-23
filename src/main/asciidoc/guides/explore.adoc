@@ -1,5 +1,5 @@
 [[explore]]
-= Explore
+== Explore
 
 The internet has a lot of graph knowledge.
 

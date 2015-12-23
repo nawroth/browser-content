@@ -1,9 +1,7 @@
-image:images/neo4j-world.png[image]
-
-\{\{ neo4j.version }} - \{\{ neo4j.edition | uppercase }}
-
 [[learn-about-neo4j]]
-=== Learn about Neo4j
+== Learn about Neo4j
+
+image:images/neo4j-world.png[image]
 
 A graph epiphany awaits you.
 
@@ -16,7 +14,7 @@ image:images/learn-icon.png[image]
 Start Learning
 
 [[jump-into-code]]
-=== Jump into code
+== Jump into code
 
 Use Cypher, the graph query language.
 
@@ -29,7 +27,7 @@ image:images/code-icon.png[image]
 Write Code
 
 [[monitor-the-system]]
-=== Monitor the system
+== Monitor the system
 
 Key system health and status metrics.
 

@@ -1,9 +1,7 @@
-image:images/welcome-logo.png[image]
-
-\{\{ neo4j.version }}
-
 [[getting-started]]
 === Getting started
+
+image:images/welcome-logo.png[image]
 
 by learning about Neo4j...
 

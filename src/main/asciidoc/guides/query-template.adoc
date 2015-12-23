@@ -1,177 +1,262 @@
 [[query-template---create]]
-=== Query Template - Create
+== Query Template -- Create
 
-Generate nodes and relationships
+Generate nodes and relationships.
 
-From Node A
+++++
+<form class="ng-valid ng-dirty ng-valid-parse">
+  <div class="node">
+    <div class="form-group">
+      <p class="help-block">From Node A</p>
+      <label>Label</label>
+      <input ng-model="nodeLabelA" class="form-control ng-valid ng-dirty ng-valid-parse ng-touched">
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-6">
+          <label>Property</label>
+          <input ng-model="propertyKeyA" class="form-control ng-pristine ng-untouched ng-valid">
+        </div>
+        <div class="col-sm-6">
+          <label>Value</label>
+          <input ng-model="propertyValueA" class="form-control ng-pristine ng-untouched ng-valid">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="relationship">
+    <div class="form-group">
+      <p class="help-block">through a Relationship</p>
+      <label>Type</label>
+      <input ng-model="relationshipType" class="ng-pristine ng-untouched ng-valid">
+    </div>
+  </div>
+  <div class="node">
+    <div class="form-group">
+      <p class="help-block">to Node B</p>
+      <label>Label</label>
+      <input ng-model="nodeLabelB" class="ng-pristine ng-untouched ng-valid">
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-6">
+          <label>Property</label>
+          <input ng-model="propertyKeyB" class="form-control ng-pristine ng-untouched ng-valid">
+        </div>
+        <div class="col-sm-6">
+          <label>Value</label>
+          <input ng-model="propertyValueB" class="form-control ng-pristine ng-untouched ng-valid">
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
 
-Label
+<div class="col-sm-8 ng-scope">
+  <table class="table table-striped table-bordered table-fixed th-100">
+    <tbody><tr>
+      <th>Using Data</th>
+      <td class="ng-binding">
+        From a node labeled "Person"
+         with a property called "name"
+         which has value "Ann"
+         , through a relationship of type "KNOWS"
+         to another node labeled "Person"
+         with a property called "name"
+         which has value "Dan"
+      </td>
+    </tr>
+    <tr>
+      <th>Create</th>
+      <td class="ng-binding">
+        Create a "Person" node
+         with a property called "name"
+         that has value "Ann". (Or create Node B)
+        <figure>
+          <pre class="code runnable standalone-example ng-binding">CREATE (n:Person { name: 'Ann' }) RETURN n</pre>
+        </figure>
+        <figure>
+          <pre class="code runnable standalone-example ng-binding">CREATE (n:Person { name: 'Dan' }) RETURN n</pre>
+        </figure>
+      </td>
+    </tr>
+    <tr>
+      <th>Relate</th>
+      <td class="ng-binding">
+        From a "Person" node
+         with a "name" property
+         of "Ann"
+         create a "KNOWS"
+         relationship to a "Person" with "name" value "Dan".
+        <figure>
+          <pre class="code runnable standalone-example ng-binding">MATCH (a:Person { name: 'Ann' }), (b:Person { name: 'Dan' })
+CREATE (a)-[:KNOWS]-&gt;(b)</pre>
+        </figure>
+      </td>
+    </tr>
+    <tr>
+      <th>Merge node</th>
+      <td class="ng-binding">
+        Find or create a "Person" node
+         with "name" of "Ann".
+        <figure>
+          <pre class="code runnable standalone-example ng-binding">MERGE (n:Person { name: 'Ann' }) RETURN n</pre>
+        </figure>
+      </td>
+    </tr>
+    <tr>
+      <th>Merge relationship</th>
+      <td class="ng-binding">
+        Find or create a relationship from a "Person with "name" of "Ann"
+         through a "KNOWS" relationship
+         to a "Person" node with "name" of "Dan".
+        <figure>
+          <pre class="code runnable standalone-example ng-binding">MATCH (a:Person { name: 'Ann' }), (b:Person { name: 'Dan' })
+MERGE (a)-[:KNOWS]-&gt;(b)</pre>
+        </figure>
+      </td>
+    </tr>
+  </tbody></table>
+</div>
+++++
 
-Property
-
-Value
-
-through a Relationship
-
-Type
-
-to Node B
-
-Label
-
-Property
-
-Value
-
-[width="100%",cols="50%,50%",]
-|=======================================================================
-|Using Data |From a node labeled "\{\{nodeLabelA}}" with a property
-called "\{\{propertyKeyA}}" which has value "\{\{propertyValueA}}" ,
-through a relationship of type "\{\{relationshipType}}" to another node
-labeled "\{\{nodeLabelB}}" with a property called "\{\{propertyKeyB}}"
-which has value "\{\{propertyValueB}}"
-
-|Create a|
-Create a "\{\{nodeLabelA}}" node with a property called
-"\{\{propertyKeyA}}" that has value "\{\{propertyValueA}}". (Or create
-Node B)
-
-code,code,runnable,standalone-example-----------------------------------------------------------------------------------------------------
-code,code,runnable,standalone-example
-CREATE (n:{{nodeLabelA | tickitize}} { {{propertyKeyA | tickitize}}: '{{propertyValueA}}' }) RETURN n
------------------------------------------------------------------------------------------------------
-
-code,code,runnable,standalone-example-----------------------------------------------------------------------------------------------------
-code,code,runnable,standalone-example
-CREATE (n:{{nodeLabelB | tickitize}} { {{propertyKeyB | tickitize}}: '{{propertyValueB}}' }) RETURN n
------------------------------------------------------------------------------------------------------
-
-|Relate a|
-From a "\{\{nodeLabelA}}" node with a "\{\{propertyKeyA}}" property of
-"\{\{propertyValueA}}" create a "\{\{relationshipType}}" relationship to
-a "\{\{nodeLabelB}}" with "\{\{propertyKeyB}}" value
-"\{\{propertyValueB}}".
-
-code,code,runnable,standalone-example----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-code,code,runnable,standalone-example
-MATCH (a:{{nodeLabelA | tickitize}} { {{propertyKeyA | tickitize}}: '{{propertyValueA}}' }), (b:{{nodeLabelB | tickitize}} { {{propertyKeyB | tickitize}}: '{{propertyValueB}}' })
-CREATE (a)-[:{{relationshipType | tickitize}}]->(b)
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-|Merge node a|
-Find or create a "\{\{nodeLabelA}}" node with "\{\{propertyKeyA}}" of
-"\{\{propertyValueA}}".
-
-code,code,runnable,standalone-example----------------------------------------------------------------------------------------------------
-code,code,runnable,standalone-example
-MERGE (n:{{nodeLabelA | tickitize}} { {{propertyKeyA | tickitize}}: '{{propertyValueA}}' }) RETURN n
-----------------------------------------------------------------------------------------------------
-
-|Merge relationship a|
-Find or create a relationship from a "\{\{nodeLabelA}} with
-"\{\{propertyKeyA}}" of "\{\{propertyValueA}}" through a
-"\{\{relationshipType}}" relationship to a "\{\{nodeLabelB}}" node with
-"\{\{propertyKeyB}}" of "\{\{propertyValueB}}".
-
-code,code,runnable,standalone-example----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-code,code,runnable,standalone-example
-MATCH (a:{{nodeLabelA | tickitize}} { {{propertyKeyA | tickitize}}: '{{propertyValueA}}' }), (b:{{nodeLabelB | tickitize}} { {{propertyKeyB | tickitize}}: '{{propertyValueB}}' })
-MERGE (a)-[:{{relationshipType}}]->(b)
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-|=======================================================================
 
 [[query-template---find]]
-=== Query Template - Find
+== Query Template -- Find
 
-Find data using common graph patterns
+Find data using common graph patterns.
 
-From Node A
+++++
+<form class="ng-pristine ng-valid">
+  <div class="node">
+    <div class="form-group">
+      <p class="help-block">From Node A</p>
+      <label>Label</label>
+      <input ng-model="nodeLabelA" class="form-control ng-pristine ng-untouched ng-valid">
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-6">
+          <label>Property</label>
+          <input ng-model="propertyKeyA" class="form-control ng-pristine ng-untouched ng-valid">
+        </div>
+        <div class="col-sm-6">
+          <label>Value</label>
+          <input ng-model="propertyValueA" class="form-control ng-pristine ng-untouched ng-valid">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="relationship">
+    <div class="form-group">
+      <p class="help-block">through a Relationship</p>
+      <label>Type</label>
+      <input ng-model="relationshipType" class="ng-pristine ng-untouched ng-valid">
+    </div>
+  </div>
+  <div class="node">
+    <div class="form-group">
+      <p class="help-block">to Node B</p>
+      <label>Label</label>
+      <input ng-model="nodeLabelB" class="ng-pristine ng-untouched ng-valid">
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-6">
+          <label>Property</label>
+          <input ng-model="propertyKeyB" class="form-control ng-pristine ng-untouched ng-valid">
+        </div>
+        <div class="col-sm-6">
+          <label>Value</label>
+          <input ng-model="propertyValueB" class="form-control ng-pristine ng-untouched ng-valid">
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
 
-Label
-
-Property
-
-Value
-
-through a Relationship
-
-Type
-
-to Node B
-
-Label
-
-Property
-
-Value
-
-[width="100%",cols="50%,50%",]
-|=======================================================================
-|Using Data |From a node labeled "\{\{nodeLabelA}}" with a property
-called "\{\{propertyKeyA}}" which has value "\{\{propertyValueA}}" ,
-through a relationship of type "\{\{relationshipType}}" to another node
-labeled "\{\{nodeLabelB}}" with a property called "\{\{propertyKeyB}}"
-which has value "\{\{propertyValueB}}"
-
-|Find one a|
-Find a node labeled "\{\{nodeLabelA}}" with a property called
-"\{\{propertyKeyA}}" that has value "\{\{propertyValueA}}".
-
-code,code,runnable,standalone-example----------------------------------------------------------------------------------------------------
-code,code,runnable,standalone-example
-MATCH (n:{{nodeLabelA | tickitize}} { {{propertyKeyA | tickitize}}: '{{propertyValueA}}' }) RETURN n
-----------------------------------------------------------------------------------------------------
-
-|Find related neighbors a|
-From a "\{\{nodeLabelA}}" node with a "\{\{propertyKeyA}}" of
-"\{\{propertyValueA}}" find neighbors related by
-"\{\{relationshipType}}".
-
-code,code,runnable,standalone-example-------------------------------------------------------------------------------------------------------------------------------------------------------------
-code,code,runnable,standalone-example
-MATCH (n:{{nodeLabelA| tickitize}} { {{propertyKeyA | tickitize}}: '{{propertyValueA}}' })-[:{{relationshipType | tickitize}}]-(neighbors) RETURN n,neighbors
--------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-|Variable length paths a|
-From a "\{\{nodeLabelA}}" node with a "\{\{propertyKeyA}}" of
-"\{\{propertyValueA}}" follow "\{\{relationshipType}}" relationships up
-to \{\{relationshipDepth}} hops away.
-
-code,code,runnable,standalone-example----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-code,code,runnable,standalone-example
-MATCH (n:{{nodeLabelA}} { {{propertyKeyA | tickitize}}: '{{propertyValueA}}' })-[:{{relationshipType | tickitize}}*1..{{relationshipDepth}}]-(neighbors) RETURN n, collect(DISTINCT neighbors)
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-|Shortest path a|
-From a "\{\{nodeLabelA}}" node with a "\{\{propertyKeyA}}" of
-"\{\{propertyValueA}}" find the shortest "\{\{relationshipType}}" path
-to a "\{\{nodeLabelB}}" node with "\{\{propertyKeyB}}" of
-"\{\{propertyValueB}}"
-
-code,code,runnable,standalone-example----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-code,code,runnable,standalone-example
-MATCH p=shortestPath(
-  (a:{{nodeLabelA | tickitize}} { {{propertyKeyA | tickitize}}: '{{propertyValueA}}' })-[:{{relationshipType | tickitize}}]-(b:{{nodeLabelB | tickitize}} { {{propertyKeyB | tickitize}}: '{{propertyValueB}}'})
+<div class="col-sm-8 ng-scope">
+  <table class="table table-striped table-bordered table-fixed th-100">
+    <tbody><tr>
+      <th>Using Data</th>
+      <td class="ng-binding">
+        From a node labeled "Person"
+         with a property called "name"
+         which has value "Ann"
+         , through a relationship of type "KNOWS"
+         to another node labeled "Person"
+         with a property called "name"
+         which has value "Dan"
+      </td>
+    </tr>
+    <tr>
+      <th>Find one</th>
+      <td class="ng-binding">
+        Find a node labeled "Person"
+         with a property called "name"
+         that has value "Ann".
+        <figure>
+          <pre class="code runnable standalone-example ng-binding">MATCH (n:Person { name: 'Ann' }) RETURN n</pre>
+        </figure>
+      </td>
+    </tr>
+    <tr>
+      <th>Find related neighbors</th>
+      <td class="ng-binding">
+        From a "Person" node
+         with a "name"
+         of "Ann"
+         find neighbors related by "KNOWS".
+        <figure>
+          <pre class="code runnable standalone-example ng-binding">MATCH (n:Person { name: 'Ann' })-[:KNOWS]-(neighbors) RETURN n,neighbors</pre>
+        </figure>
+      </td>
+    </tr>
+    <tr>
+      <th>Variable length paths</th>
+      <td class="ng-binding">
+        From a "Person" node
+         with a "name"
+         of "Ann"
+         follow "KNOWS" relationships up to 3 hops away.
+        <figure>
+          <pre class="code runnable standalone-example ng-binding">MATCH (n:Person { name: 'Ann' })-[:KNOWS*1..3]-(neighbors) RETURN n, collect(DISTINCT neighbors)</pre>
+        </figure>
+      </td>
+    </tr>
+    <tr>
+      <th>Shortest path</th>
+      <td class="ng-binding">
+        From a "Person" node
+         with a "name"
+         of "Ann"
+         find the shortest "KNOWS" path to
+        a "Person" node with "name" of "Dan"
+        <figure>
+          <pre class="code runnable standalone-example ng-binding">MATCH p=shortestPath(
+(a:Person { name: 'Ann' })-[:KNOWS]-(b:Person { name: 'Dan'})
 )
 RETURN p
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+</pre>
+        </figure>
+      </td>
+    </tr>
+  </tbody></table>
+</div>
+++++
 
-|=======================================================================
 
 [[next-steps]]
-=== Next steps
+== Next steps
 
 [[more-code]]
 === More code
 
-* Northwind Graph - from RDBMS to graph
-* Movie Graph - common ad-hoc queries
-* Cypher - query language fundamentals
+* Northwind Graph -- from RDBMS to graph
+* Movie Graph -- common ad-hoc queries
+* Cypher -- query language fundamentals
 
 [[reference]]
 === Reference
 
 * http://neo4j.com/developer[Developer resources]
-* http://neo4j.com/docs/%7B%7Bneo4j.version%20%7C%20neo4jdoc%20%7D%7D/[Neo4j
-Manual]

@@ -28,7 +28,7 @@ ext {
             'experimental'     : '',
             'icons'            : 'font',
             'imagesdir'        : './images',
-            'leveloffset'      : '+1',
+            'leveloffset'      : '1',
             'sectanchors!'     : '',
             'toc'              : 'preamble',
     ]
