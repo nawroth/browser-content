@@ -4,8 +4,8 @@ import org.asciidoctor.SafeMode
 
 buildscript {
     ext {
-        jrubyVersion = '1.7.23'
-        asciidoctorjVersion = '1.5.3.2'
+        jrubyVersion = '9.0.3.0'
+        asciidoctorjVersion = '1.6.0-alpha.1'
     }
 
     dependencies {
@@ -51,7 +51,7 @@ def getAsciidoctor() {
 def asciidocSourceDir = "${projectDir}/src/main/asciidoc"
 def asciidocSourceFile = new File("$asciidocSourceDir/browser.adoc")
 def asciidocResourcesDir = "${projectDir}/src/main/resources"
-def asciidocTemplateDir = new File("$asciidocResourcesDir/erb")
+def asciidocTemplateDir = new File("$asciidocResourcesDir/slim")
 def htmlOutputDir = "$buildDir/html5"
 
 task('asciidoctorHtml') {
