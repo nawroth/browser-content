@@ -23,16 +23,14 @@ apply plugin: 'base'
 defaultTasks 'asciidoctorHtml'
 
 ext {
-    projectVersionTitle = '1.0 ALPHA'
-    projectVersion = '1.0'
     asciidoctorAttributes = [
-            'project-version'  : projectVersionTitle,
+            'attribute-missing': 'warn',
+            'experimental'     : '',
             'icons'            : 'font',
             'imagesdir'        : './images',
-            'attribute-missing': 'warn',
-            'toc'              : 'preamble',
+            'leveloffset'      : '+1',
             'sectanchors!'     : '',
-            'leveloffset'      : '+1'
+            'toc'              : 'preamble',
     ]
     adoc = null
 }

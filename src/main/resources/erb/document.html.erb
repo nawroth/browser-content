@@ -4,7 +4,7 @@
     max-height: 300px;
   }
 
-  .deck h3 {
+  article.asciidoc .deck h3 {
     display: block !important;
     margin-bottom: 8px;
     margin-top: 5px;
@@ -14,7 +14,7 @@
     margin: 8px;
   }
 
-  .pull-bottom {
+  article.asciidoc .pull-bottom {
     position: relative;
     bottom: 1em;
   }
@@ -85,7 +85,7 @@
   }
 
   /* kbd */
-  .asciidoc kbd {
+  article.asciidoc kbd {
     display: inline-block;
     color: rgba(0, 0, 0, 1);
     font-size: .75em;
@@ -102,36 +102,36 @@
     white-space: nowrap;
   }
 
-  .asciidoc .keyseq kbd:first-child {
+  article.asciidoc .keyseq kbd:first-child {
     margin-left: 0;
   }
 
-  .asciidoc .keyseq kbd:last-child {
+  article.asciidoc .keyseq kbd:last-child {
     margin-right: 0;
   }
 
   /* Tables */
-  table thead {
+  article.asciidoc table thead {
     background: #f7f8f7;
   }
 
-  table thead tr th, table thead tr td {
+  article.asciidoc table thead tr th, article.asciidoc table thead tr td {
     padding: .5em .625em .625em;
     color: rgba(0, 0, 0, .8);
     text-align: left
   }
 
-  table tr th, table tr td {
+  article.asciidoc table tr th, article.asciidoc table tr td {
     padding: .5625em .625em;
     font-size: inherit;
     color: rgba(0, 0, 0, .8)
   }
 
-  table tr.even, table tr.alt, table tr:nth-of-type(even) {
+  article.asciidoc table tr.even, article.asciidoc table tr.alt, article.asciidoc table tr:nth-of-type(even) {
     background: #f8f8f7
   }
 
-  table thead tr th, table tbody tr td, table tr td {
+  article.asciidoc table thead tr th, article.asciidoc table tbody tr td, article.asciidoc table tr td {
     display: table-cell;
     line-height: 1.6
   }
@@ -177,11 +177,11 @@
     vertical-align: middle
   }
 
-  table thead th {
+  article.asciidoc table thead th {
     font-size: 1.2em;
   }
 
-  tbody tr th {
+  article.asciidoc tbody tr th {
     background: #f7f8f7;
   }
 
@@ -192,24 +192,6 @@
 </style>
 <article class="guide asciidoc">
   <carousel class="deck container-fluid">
-    <!--slide class="row-fluid">
-            <div class="col-sm-3">
-                <h3><%= doctitle(:sanitize => true) || (attr 'untitled-label') || 'Neo4j GraphGist' %></h3>
-                <p class="lead">Information</p>
-                <!dl>
-                    <%
-     [:description, :keywords, :author, :copyright].each do |key|
-       if attr? key %><dt><%= key %>"</dt><dd><%= attr key %></dd>
-        <% end %>
-                    <% end %>
-                </dl>
-            </div>
-            <div class="col-sm-9">
-                <figure>
-                    <img style="width:300px" src="<%= attr :image %>"/>
-                </figure>
-            </div>
-        </slide-->
     <%= content %>
   </carousel>
 </article>
