@@ -14,6 +14,7 @@ You can provide your name and send us a message.
 
 == Useful Commands and Keyboard Shortcuts
 
+[options='header,autowidth']
 |===
 |Shortcut |Purpose
 
