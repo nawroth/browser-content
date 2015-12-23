@@ -20,7 +20,7 @@ buildscript {
 
 apply plugin: 'base'
 
-defaultTasks 'asciidoctorHtml'
+defaultTasks 'browserGuide', 'guides', 'help'
 
 ext {
     asciidoctorAttributes = [
@@ -35,7 +35,7 @@ ext {
     adoc = null
 }
 
-task('cleanOutputs', dependsOn: ['cleanAsciidoctorHtml']) {
+task('cleanOutputs', dependsOn: ['cleanBrowserGuide', 'cleanGuides', 'cleanHelp']) {
     description 'Clean the HTML outputs.'
 }
 
@@ -46,32 +46,61 @@ def getAsciidoctor() {
     project.ext.adoc
 }
 
+def buildAdocDir(srcDir, targetDir, templateDir) {
+    FileTree tree = fileTree(dir: srcDir)
+    tree.include '*.adoc'
+    def attrs = project.ext.asciidoctorAttributes
+    def opts = OptionsBuilder.options()
+            .backend('html5')
+            .safe(SafeMode.UNSAFE)
+            .toDir(new File(targetDir))
+            .mkDirs(true)
+            .attributes(attrs)
+            .templateDir(templateDir)
+    getAsciidoctor().convertFiles(tree.getFiles(), opts.get())
+}
+
 def asciidocSourceDir = "${projectDir}/src/main/asciidoc"
-def asciidocSourceFile = new File("$asciidocSourceDir/browser.adoc")
+def guidesSourceDir = "$asciidocSourceDir/guides"
+def helpSourceDir = "$asciidocSourceDir/help"
 def asciidocResourcesDir = "${projectDir}/src/main/resources"
 def asciidocTemplateDir = new File("$asciidocResourcesDir/erb")
 def htmlOutputDir = "$buildDir/html5"
+def guidesOutputDir = "$htmlOutputDir/guides"
+def helpOutputDir = "$htmlOutputDir/help"
 
-task('asciidoctorHtml') {
+task('browserGuide') {
     description 'Build Asciidoctor HTML output.'
-    inputs.dir asciidocSourceDir
+    inputs.file "$asciidocSourceDir/browser.adoc"
     inputs.dir asciidocTemplateDir
     outputs.dir htmlOutputDir
     doLast {
-        def attrs = project.ext.asciidoctorAttributes
-        def opts = OptionsBuilder.options()
-                .backend('html5')
-                .safe(SafeMode.UNSAFE)
-                .toDir(new File(htmlOutputDir))
-                .mkDirs(true)
-                .attributes(attrs)
-                .templateDir(asciidocTemplateDir)
-        getAsciidoctor().convertFile(asciidocSourceFile, opts.get())
+        buildAdocDir(asciidocSourceDir, htmlOutputDir, asciidocTemplateDir)
     }
 }
 
-task('dist', dependsOn: ['asciidoctorHtml']) {
-    description 'Build HTML and PDF outputs.'
+task('guides') {
+    description 'Build Asciidoctor HTML output for guides.'
+    inputs.dir guidesSourceDir
+    inputs.dir asciidocTemplateDir
+    outputs.dir guidesOutputDir
+    doLast {
+        buildAdocDir(guidesSourceDir, guidesOutputDir, asciidocTemplateDir)
+    }
+}
+
+task('help') {
+    description 'Build Asciidoctor HTML output for guides.'
+    inputs.dir helpSourceDir
+    inputs.dir asciidocTemplateDir
+    outputs.dir helpOutputDir
+    doLast {
+        buildAdocDir(helpSourceDir, helpOutputDir, asciidocTemplateDir)
+    }
+}
+
+task('dist', dependsOn: ['browserGuide', 'guides', 'help']) {
+    description 'Build all outputs.'
 }
 
 task buildScriptDependencies(type: org.gradle.api.tasks.diagnostics.DependencyReportTask) {
