@@ -1,0 +1,19 @@
+[[detach-delete]]
+=== DETACH DELETE
+
+Delete all nodes and relationships
+
+The `DETACH DELETE` clause is used to delete all nodes and
+relationships.
+
+[cols=",",]
+|================================
+|Reference: |`DELETE` manual page
+|Related: |:help DELETE
+|================================
+
+-------------------------
+MATCH (n) DETACH DELETE n
+-------------------------
+
+Delete all nodes and relationships.

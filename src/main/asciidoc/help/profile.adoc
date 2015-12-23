@@ -1,0 +1,22 @@
+[[profile]]
+=== PROFILE
+
+Profile query execution
+
+Prefix any query with the `PROFILE` keyword to have Neo4j return the
+execution plan for the query, including detailed profilling information.
+
+See :help QUERY PLAN for a guide to understanding the query plan output.
+
+[cols=",",]
+|=========================================
+|Reference: |`Execution Plans` manual page
+|Related: |:help EXPLAIN :help QUERY PLAN 
+|=========================================
+
+code,code,runnable---------------------------------- code,code,runnable
+PROFILE
+MATCH (n:Person) RETURN n LIMIT 25
+----------------------------------
+
+Find nodes with the Person label, and profile query execution.

@@ -1,0 +1,15 @@
+[[server]]
+=== Server
+
+Server connection management
+
+The  `:server` command lets you manage the connection to Neo4j, such as
+connecting, disconnecting and viewing metadata for the current
+connection.
+
+[cols=",",]
+|================================================
+|Usage: |`:server <action>`
+|Actions: |:server status :server change-password
+|Auth: |:server connect :server disconnect
+|================================================

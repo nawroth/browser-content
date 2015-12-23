@@ -1,0 +1,22 @@
+[[ends-with]]
+=== ENDS WITH
+
+Matching the end of a string
+
+The end of strings can be matched using `ENDS WITH`. The matching is
+case-sensitive.
+
+[cols=",",]
+|==========================================
+|Reference: |`WHERE` manual page
+|Related: |:help STARTS WITH :help CONTAINS
+|==========================================
+
+code,code,runnable,standalone-example-----------------------------------
+code,code,runnable,standalone-example
+MATCH (director:Person)
+WHERE director.name ENDS WITH 'ter'
+RETURN director.name
+-----------------------------------
+
+Match directors with a name that ends with "ter".

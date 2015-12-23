@@ -1,0 +1,16 @@
+[[rest-delete]]
+=== REST DELETE
+
+Use `:DELETE` to send HTTP DELETE to Neo4j's REST interface.
+
+[cols=",",]
+|=====================================================
+|Reference: |`REST`
+|Related: |:help REST GET:help REST POST:help REST PUT
+|=====================================================
+
+code,code,runnable------------------------------ code,code,runnable
+:DELETE /db/data/transaction/2
+------------------------------
+
+Rollback an open transaction.

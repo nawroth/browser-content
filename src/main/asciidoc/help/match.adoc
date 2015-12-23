@@ -1,0 +1,26 @@
+[[match]]
+=== MATCH
+
+Describe a data pattern
+
+The `MATCH` clause describes a pattern of graph data. Neo4j will collect
+all paths within the graph which match this pattern. This is often used
+with `WHERE` to filter the collection.
+
+`MATCH` descibes the structure, and `WHERE` specfies the content of a
+query.
+
+[cols=",",]
+|==================================
+|Reference: |`MATCH` manual page
+|Related: |:help WHERE :help Cypher
+|==================================
+
+code,code,runnable,standalone-example--------------------------------------------
+code,code,runnable,standalone-example
+MATCH (director:Person)-[:DIRECTED]->(movie)
+WHERE director.name = "Steven Spielberg"
+RETURN movie.title
+--------------------------------------------
+
+Find all the many fine films directed by Steven Spielberg.

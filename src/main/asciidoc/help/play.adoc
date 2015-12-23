@@ -1,0 +1,15 @@
+[[play]]
+=== Play
+
+Display a mini-deck
+
+The  `:play` command loads a mini-deck with either guide material or
+sample data.
+
+[cols=",",]
+|=======================================================================
+|Usage: |`:play <guide | data>`
+|System information: |:play sysinfo
+|Guides: |:play intro :play graphs :play cypher
+|Examples: |:play movie graph :play northwind graph :play query template
+|=======================================================================

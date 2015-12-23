@@ -1,0 +1,16 @@
+[[rest-get]]
+=== REST GET
+
+Use `:GET` to send HTTP GET to Neo4j's REST interface.
+
+[cols=",",]
+|==========================================================
+|Reference: |`REST`
+|Related: |:help REST DELETE :help REST POST :help REST PUT
+|==========================================================
+
+code,code,runnable-------------------- code,code,runnable
+:GET /db/data/labels
+--------------------
+
+Get the available labels

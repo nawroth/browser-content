@@ -1,0 +1,22 @@
+[[starts-with]]
+=== STARTS WITH
+
+Matching the start of a string
+
+The start of strings can be matched using `STARTS WITH`. The matching is
+case-sensitive.
+
+[cols=",",]
+|========================================
+|Reference: |`WHERE` manual page
+|Related: |:help ENDS WITH :help CONTAINS
+|========================================
+
+code,code,runnable,standalone-example-------------------------------------
+code,code,runnable,standalone-example
+MATCH (director:Person)
+WHERE director.name STARTS WITH 'Pet'
+RETURN director.name
+-------------------------------------
+
+Match directors with a name that starts with "Pet".

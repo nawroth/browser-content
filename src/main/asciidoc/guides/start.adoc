@@ -1,0 +1,46 @@
+image:images/neo4j-world.png[image]
+
+\{\{ neo4j.version }} - \{\{ neo4j.edition | uppercase }}
+
+[[learn-about-neo4j]]
+=== Learn about Neo4j
+
+A graph epiphany awaits you.
+
+image:images/learn-icon.png[image]
+
+* What is a graph database?
+* How can I query a graph?
+* What do people do with Neo4j?
+
+Start Learning
+
+[[jump-into-code]]
+=== Jump into code
+
+Use Cypher, the graph query language.
+
+image:images/code-icon.png[image]
+
+* Code walk-throughs
+* RDBMS to Graph
+* Query templates
+
+Write Code
+
+[[monitor-the-system]]
+=== Monitor the system
+
+Key system health and status metrics.
+
+image:images/health-icon.png[image]
+
+* Disk utilization
+* Cache activity
+* Cluster health and status
+
+Monitor
+
+link:%7B%7B%20motd.callToAction.u%7D%7D[\{\{ motd.callToAction.d }}]
+
+Copyright ©http://neo4j.com/[Neo Technology] 2002–2015

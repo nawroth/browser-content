@@ -1,0 +1,50 @@
+[[explore]]
+= Explore
+
+The internet has a lot of graph knowledge.
+
+[[participate-in-a-thriving-community]]
+== Participate in a thriving community
+
+image:images/community.jpg[image]
+
+Neo4j has a growing worldwide community of users, contributors and
+partners. Join in to learn from others, and share your own insights.
+
+* http://stackoverflow.com/questions/tagged/neo4j[Stack
+Overflow]for__Q__uestions and__A__nswers
+* http://groups.google.com/group/neo4j[Google Groups]to discuss general
+Neo4j topics
+* http://neo4j.meetup.com[Meetup.com]for face-to-face interaction with
+peers
+* http://github.com/neo4j[Github]for open source code contributions
+
+Graphistas are everywhere.
+
+[[watch-videos]]
+== Watch videos
+
+image:/content/help/guides/img/watch.png[image]
+
+* http://watch.neo4j.org/video/58186636[Intro to Neo4j]for a gentle
+introduction
+* http://watch.neo4j.org/video/57174859[Cypher for SQL Professionals]if
+you're familiar with RDBMS
+* http://watch.neo4j.org[Watch]all of the latest videos
+
+Coming soon: a full length movie starring Johnny Depp as Il Grafico.
+
+[[read-in-depth-material]]
+== Read in-depth material
+
+image:/content/help/guides/img/books.png[image]
+
+* http://neo4j.com/docs/%7B%7Bneo4j.version%7D%7D/[Neo4j Manual]- the
+official reference
+* http://graphdatabases.com/[Graph Databases]- the definitive book
+* http://www.manning.com/partner/[Neo4j in Action]- a practical approach
+
+* http://blog.neo4j.org[Neo4j Blog]- latest information
+* http://maxdemarzi.com[Max de Marzi]- a practioner's blog
+
+Your brain is a graph. Graph thinking will make it happy.

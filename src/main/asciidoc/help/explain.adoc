@@ -1,0 +1,25 @@
+[[explain]]
+=== EXPLAIN
+
+Explain query execution
+
+Prefix any query with the `EXPLAIN` keyword to have Neo4j return the
+execution plan it would use to execute the query. However, the query is
+not executed, and Neo4j will make no changes to the database.
+
+See :help QUERY PLAN for a guide to understanding the query plan output.
+
+[cols=",",]
+|=========================================
+|Reference: |`Execution Plans` manual page
+|Related: |:help PROFILE :help QUERY PLAN 
+|=========================================
+
+code,code,runnable,standalone-example----------------------------------
+code,code,runnable,standalone-example
+EXPLAIN
+MATCH (n:Person) RETURN n LIMIT 25
+----------------------------------
+
+Show the query plan that would be used to find nodes with the Person
+label, without actually executing the plan.

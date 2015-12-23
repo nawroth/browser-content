@@ -1,0 +1,24 @@
+[[create-unique]]
+=== CREATE UNIQUE
+
+Match meets Create
+
+The `CREATE UNIQUE` clause is a mix of `MATCH` and `CREATE` — it will
+match what it can, and create what is missing.
+
+[cols=",",]
+|===========================================================
+|Reference: |`CREATE UNIQUE` manual page
+|Related: |:help MATCH :help CREATE :help MERGE :help Cypher
+|===========================================================
+
+code,code,runnable-----------------------------------------------------
+code,code,runnable
+MATCH (us:Country)
+WHERE us.name = 'United States'
+CREATE UNIQUE (us)-[:STATE]->(ca {name:'California'})
+RETURN ca
+-----------------------------------------------------
+
+Finds the country named "United States". If found, will then create a
+new state named California, but only if it doesn't already exist.

@@ -1,0 +1,13 @@
+[[drop-index-on]]
+=== DROP INDEX ON
+
+Drop a schema index
+
+The `DROP INDEX ON` clause will an index on all nodes that have a label.
+
+[cols=",",]
+|============================================
+|Usage: |`DROP INDEX ON :Person(name)`
+|Reference: |`schema indexes` manual page
+|Related: |:help CREATE INDEX ON :help Cypher
+|============================================

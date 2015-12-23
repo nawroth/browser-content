@@ -1,0 +1,124 @@
+[[store-sizes]]
+==== Store Sizes
+
+http://neo4j.com/docs/%7B%7Bneo4j.version%7D%7D/jmx-mxbeans.html#jmx-store-file-sizes[]
+
+[cols=",",]
+|=======================================================================
+|Array Store |\{\{sysinfo.kernel.ArrayStoreSize | humanReadableBytes}}
+
+|Logical Log |\{\{sysinfo.kernel.LogicalLogSize | humanReadableBytes}}
+
+|Node Store |\{\{sysinfo.kernel.NodeStoreSize | humanReadableBytes}}
+
+|Property Store |\{\{sysinfo.kernel.PropertyStoreSize |
+humanReadableBytes}}
+
+|Relationship Store |\{\{sysinfo.kernel.RelationshipStoreSize |
+humanReadableBytes}}
+
+|String Store Size |\{\{sysinfo.kernel.StringStoreSize |
+humanReadableBytes}}
+
+|Total Store Size |\{\{sysinfo.kernel.TotalStoreSize |
+humanReadableBytes}}
+|=======================================================================
+
+[[id-allocation]]
+==== ID Allocation
+
+http://neo4j.com/docs/%7B%7Bneo4j.version%7D%7D/jmx-mxbeans.html#jmx-primitive-count[]
+
+[cols=",",]
+|=======================================================================
+|Node ID |\{\{sysinfo.primitives.NumberOfNodeIdsInUse}}
+
+|Property ID |\{\{sysinfo.primitives.NumberOfPropertyIdsInUse}}
+
+|Relationship ID |\{\{sysinfo.primitives.NumberOfRelationshipIdsInUse}}
+
+|Relationship Type ID
+|\{\{sysinfo.primitives.NumberOfRelationshipTypeIdsInUse}}
+|=======================================================================
+
+[[page-cache]]
+==== Page Cache
+
+http://neo4j.com/docs/%7B%7Bneo4j.version%7D%7D/jmx-mxbeans.html#jmx-page-cache[]
+
+No statistics available.
+
+[cols=",,,,",]
+|=======================================================================
+|Faults |\{\{sysinfo.cache.Faults}} |  |Flushes
+|\{\{sysinfo.cache.Flushes}}
+
+|Evictions |\{\{sysinfo.cache.Evictions}} |  |Eviction Exceptions
+|\{\{sysinfo.cache.EvictionExceptions}}
+
+|File Mappings |\{\{sysinfo.cache.FileMappings}} |  |File Unmappings
+|\{\{sysinfo.cache.FileUnmappings}}
+
+|Bytes Read |\{\{sysinfo.cache.BytesRead}} |  |Bytes Written
+|\{\{sysinfo.cache.BytesWritten}}
+|=======================================================================
+
+[[transactions]]
+==== Transactions
+
+http://neo4j.com/docs/%7B%7Bneo4j.version%7D%7D/jmx-mxbeans.html#jmx-transactions[]
+
+Not available.
+
+[cols=",",]
+|=========================================================
+|Last Tx Id |\{\{sysinfo.tx.LastCommittedTxId}}
+|Current |\{\{sysinfo.tx.NumberOfOpenTransactions}}
+|Peak |\{\{sysinfo.tx.PeakNumberOfConcurrentTransactions}}
+|Opened |\{\{sysinfo.tx.NumberOfOpenedTransactions}}
+|Committed |\{\{sysinfo.tx.NumberOfCommittedTransactions}}
+|=========================================================
+
+[[high-availability]]
+==== High Availability
+
+http://neo4j.com/docs/%7B%7Bneo4j.version%7D%7D/jmx-mxbeans.html#jmx-high-availability[]
+
+Not enabled.
+
+[cols=",",]
+|========================================================
+|InstanceId |\{\{sysinfo.ha.InstanceId}}
+|Role |\{\{sysinfo.ha.Role}}
+|Alive |\{\{sysinfo.ha.Alive}}
+|Available |\{\{sysinfo.ha.Available}}
+|Last Committed Tx Id |\{\{sysinfo.ha.LastCommittedTxId}}
+|Last Update Time |\{\{sysinfo.ha.LastUpdateTime}}
+|========================================================
+
+[[cluster]]
+==== Cluster
+
+http://neo4j.com/docs/%7B%7Bneo4j.version%7D%7D/ha-architecture.html[]
+
+No cluster.
+
+Id
+
+Status
+
+\{\{ member.instanceId }}
+
+_ __ _
+
+_ __ _
+
+__
+
+Note: some metrics only available in Neo4j Enterprise.
+
+Auto-refresh
+
+ON
+
+OFF

@@ -1,0 +1,26 @@
+[[load-csv]]
+=== LOAD CSV
+
+Load data from a CSV file
+
+The `LOAD CSV` clause instructs Neo4j to load data from a CSV file
+located at the given URL. This is typically used with `CREATE`
+and `MERGE` to import tabular data into the graph. If you are importing
+a substantially sized data set, you should consider using `LOAD CSV` in
+combination with `USING PERIODIC COMMIT` .
+
+[cols=",",]
+|=======================================================================
+|Reference: |`LOAD CSV` manual page; `USING PERIODIC COMMIT` manual page
+|Related: |:help CREATE :help MERGE :help Cypher
+|=======================================================================
+
+code,code,runnable-----------------------------------------------------------------
+code,code,runnable
+LOAD CSV FROM "http://data.neo4j.com/examples/person.csv" AS line
+MERGE (n:Person {id: toInt(line[0])})
+SET n.name = line[1]
+RETURN n
+-----------------------------------------------------------------
+
+Import Person nodes from a CSV file into the graph

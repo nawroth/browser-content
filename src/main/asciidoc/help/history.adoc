@@ -1,0 +1,12 @@
+[[history]]
+=== History
+
+Show command history
+
+The `:history` command will display your \{\{settings.maxHistory}} most
+recent executed commands.
+
+[cols=",",]
+|==================================
+|Related: |:help help:help commands
+|==================================

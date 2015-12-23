@@ -1,0 +1,14 @@
+[[create-index-on]]
+=== CREATE INDEX ON
+
+Index labeled nodes by property
+
+The `CREATE INDEX ON` clause will create and populate an index on a
+property for all nodes that have a label.
+
+[cols=",",]
+|==========================================
+|Usage: |`CREATE INDEX ON :Person(name)`
+|Reference: |`schema indexes` manual page
+|Related: |:help DROP INDEX ON :help Cypher
+|==========================================

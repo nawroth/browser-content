@@ -1,0 +1,29 @@
+[[help]]
+=== Help
+
+What is all this?
+
+Neo4j Browser is a command shell. Use the editor bar up above ↑ to enter
+Cypher queries or client-side commands. Each command will produce a
+"frame" like this one in the result stream.
+
+Use the `:help` command to learn about other topics.
+
+New to Neo4j? Try one of the guides to learn the basics.
+
+[cols=",",]
+|=======================================================================
+|Usage: |`:help <topic>`
+
+|Topics: |:help cypher :help commands :help keys
+
+|Guides: |:play intro :play graphs :play cypher
+
+|Examples: |:play movie graph :play northwind graph :play query template
+
+|Reference: |http://neo4j.com/docs/%7B%7Bneo4j.version%7D%7D/[Neo4j
+Manual] +
+http://neo4j.com/developer[Neo4j Developer Pages] +
+http://neo4j.com/docs/%7B%7Bneo4j.version%7D%7D/cypher-refcard[Cypher
+Refcard]
+|=======================================================================

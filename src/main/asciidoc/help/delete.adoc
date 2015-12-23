@@ -1,0 +1,24 @@
+[[delete]]
+=== DELETE
+
+Delete nodes or relationships
+
+The `DELETE` clause is used to delete nodes and relationships identified
+within a `MATCH` clause, possibly qualified by a `WHERE`. Remember that
+you can not delete a node without also deleting relationships that start
+or end on said node.
+
+[cols=",",]
+|=======================================================================
+|Reference: |`DELETE` manual page
+
+|Related: |:help DETACH DELETE :help MATCH :help WHERE :help
+REMOVE :help Cypher
+|=======================================================================
+
+code,code,runnable------------------------------------------------
+code,code,runnable
+MATCH (n)-[r]-() WHERE n.name = 'Soren' DELETE r
+------------------------------------------------
+
+Remove all of Soren's friends.

@@ -1,0 +1,109 @@
+[[query-plan]]
+=== Query Plan
+
+Understand what cypher is doing
+
+Cypher breaks down the work of executing a query into small pieces
+called __operators__. Each operator is responsible for a small part of
+the overall query. The operators are connected together in a pattern
+called a Query Plan.
+
+When you use the EXPLAIN or PROFILE commands, Neo4j Browser displays a
+diagram of the Query Plan.
+
+Click the right arrow button for the later pages of this guide, which
+explain how to read the Query Plan diagram.
+
+image:images/query-plan.svg[image]
+
+image:images/query-plan-operator-rows.svg[image]
+
+[[operators]]
+==== Operators
+
+Each Operator is displayed as a rectangle with its name in the top-left
+corner. See
+the http://neo4j.com/docs/%7B%7Bneo4j.version%7D%7D/execution-plans.html[operators
+manual page] for a description of what each operator does.
+
+[[pipes]]
+==== Pipes
+
+Operators are connected by pipes; each pipe represents the output of one
+operator and the input of the next.
+
+[[rows]]
+==== Rows
+
+In Query Plan diagrams, the width of a pipe indicates the number of rows
+that pass between operators. This means that by looking at the overall
+diagram, you can quickly see the __shape__ of the query, in terms of
+which parts process lots of rows, and which parts process few.
+
+[[estimated-rows]]
+==== Estimated rows
+
+When you use the EXPLAIN keyword, the query is not actually executed; so
+it's not possible to show actual number of rows for each pipe. In this
+case, the Query Plan diagram shows __estimated rows__ instead. These
+numbers are predicted based on Neo4j's built-in statistics. The Cypher
+cost-based planner uses estimated rows to determine the optimal query
+plan.
+
+image:images/query-plan-operator-cost.svg[image]
+
+[[database-hits]]
+==== Database hits
+
+Each operator will ask the Neo4j storage engine to do work such as
+retrieving or updating data. A __database hit__ is an abstract unit of
+this storage engine work.
+
+When you use the PROFILEcommand, the footer of the result frame displays
+the total number of database hits incurred while running the query. By
+comparing this total for different query plans, you can tell which one
+is better in terms of work for the storage engine.
+
+In addition of the total number of database hits, the Query Plan diagram
+shows the database hits for each individual operator. For operators with
+a large number of database hits, there is a red box underneath the
+operator, with its height proportional to the number. This means that
+you can glance very quickly at the whole Query Plan diagram and spot the
+operators that are responsible for significant storage engine work.
+
+image:images/query-plan-operator-details.svg[image]
+
+[[click-to-expand]]
+==== Click to expand
+
+Some operators can reveal more information about what they are doing. If
+you see a triangular expand icon next to the operator name, you can
+click to expand the operator and reveal some more details. When you're
+done, you can click the header again to collapse the operator and hide
+the details.
+
+If you want to quickly expand all the operators, there are
+expand-all ____ and collapse-all ____ buttons below the diagram.
+
+[[identifiers]]
+==== Identifiers
+
+The first section of details lists the identifiers that the operator
+works with. if you've named identifers in your query, e.g. `MATCH (n)`
+then you should find the identifier n bound in one of the operators. In
+addition to identifiers that you named in your query you may see some
+internal identifiers that Cypher has introduced to keep track of unnamed
+entities.
+
+[[expressions]]
+==== Expressions
+
+After the identifiers, you'll see a section for an expression. This is
+commonly a boolean expression such as `hasProp(born)` or it can be a
+graph pattern to be expanded such as `()-[r]-()`
+
+[cols=",",]
+|=========================================
+|Reference: |`Execution Plans` manual page
+|Related: |:help EXPLAIN :help PROFILE 
+|=========================================

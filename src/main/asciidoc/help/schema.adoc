@@ -1,0 +1,29 @@
+[[schema]]
+=== Schema
+
+Database schema indexes
+
+Shows information about database schema indexes.
+
+[width="100%",cols="50%,50%",]
+|=======================================================================
+|Usage: |`:schema <action> <options...>`
+
+|Actions: a|
+* ls - list indexes
+* await - wait for an index to come online
+
+|Options: a|
+* -l Specifies which label selected operation is about.
+* -p Specifies which property selected operation is about.
+* -v Verbose output of failure descriptions etc.
+
+|Examples: |`:schema ls -l :Person` +
+`:schema await -l Person -p name`
+
+|Related: |:help CREATE INDEX ON
+
+|Reference:
+|http://neo4j.com/docs/%7B%7Bneo4j.version%7D%7D/query-schema-index.html[Neo4j
+Schema Indexes]
+|=======================================================================

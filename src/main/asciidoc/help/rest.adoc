@@ -1,0 +1,12 @@
+[[rest]]
+=== REST
+
+Any HTTP verb
+
+The editor bar has convenience commands for sending any HTTP verb help
+to Neo4j's REST API. For PUT and POST, include a JSON payload.
+
+[cols=",",]
+|======================================================================
+|REST: |:help REST GET,:help REST POST,:help REST PUT,:help REST DELETE
+|======================================================================

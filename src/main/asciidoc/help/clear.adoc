@@ -1,0 +1,11 @@
+[[clear]]
+=== Clear
+
+Reset the stream
+
+The `:clear` command will remove all frames from the stream.
+
+[cols=",",]
+|==================================
+|Related: |:help help:help commands
+|==================================

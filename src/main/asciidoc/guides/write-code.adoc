@@ -1,0 +1,43 @@
+[[write-code]]
+=== Write Code
+
+Jump right into coding with example data graphs
+
+[[movie-graph]]
+=== Movie Graph
+
+Actors & movies in cross-referenced pop culture.
+
+image:images/movie-icon.png[image]
+
+* A complete example graph.
+* Demonstrates common query patterns.
+* Solves the Bacon path!
+
+Create a graph
+
+[[northwind-graph]]
+=== Northwind Graph
+
+From RDBMS to Neo4j, using a classic data set.
+
+image:images/northwind-icon.png[image]
+
+* Load data from external CSV files.
+* Convert RDBMS schema to graph structure.
+* Run sample queries.
+
+Convert from RDBMS
+
+[[query-templates]]
+=== Query Templates
+
+Easily generate Cypher statements.
+
+image:images/template-icon.png[image]
+
+* Fill in labels, types, and property values.
+* Generate nodes and relationships.
+* Find common graph patterns.
+
+Generate a graph

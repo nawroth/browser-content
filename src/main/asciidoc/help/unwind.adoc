@@ -1,0 +1,23 @@
+[[unwind]]
+=== UNWIND
+
+unwind a collection into a sequence of rows
+
+The `UNWIND` expands a collection in to a sequence of rows. Any existing
+identifiers are still available after `UNWIND`.
+
+[cols=",",]
+|==================================
+|Reference: |`UNWIND` manual page
+|Related: |:help MATCH :help Cypher
+|==================================
+
+code,code,runnable,standalone-example----------------------------------------------------------------------------------------------------------
+code,code,runnable,standalone-example
+MATCH p = shortestPath( (lucy:Person {name:"Lucy Liu"})-[:ACTED_IN*]-(bacon:Person {name:"Kevin Bacon"}) )
+UNWIND nodes(p) as n
+RETURN n.name
+----------------------------------------------------------------------------------------------------------
+
+Return a set of actors that form the shortest acquaintance links between
+Lucy Liu and Kevin Bacon

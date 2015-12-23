@@ -1,0 +1,23 @@
+[[merge]]
+=== MERGE
+
+Create missing graph data
+
+The `MERGE` clause ensures that an expected pattern exists in the graph,
+reconciling whether data was found, or needs to be created through
+sub-clauses `ON CREATE` and `ON MATCH`.
+
+[cols=",",]
+|===============================================
+|Reference: |`MERGE` `ON CREATE` `ON MATCH`
+|Related: |:help MATCH :help CREATE :help Cypher
+|===============================================
+
+code,code,runnable-------------------------------------------------------
+code,code,runnable
+MERGE (charlie:Person { name:'Charlie Sheen', age:10 })
+RETURN charlie
+-------------------------------------------------------
+
+Look for a person named Charlie Sheen, age 10. If not found, create such
+a person.

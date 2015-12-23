@@ -1,0 +1,54 @@
+[[keys]]
+=== Keys
+
+Keyboard shortcuts
+
+*Editor action*
+
+*Any mode*
+
+*Single-line mode*
+
+Execute current command
+
+<Ctrl-Return>
+
+<Return>
+
+Previous command in history
+
+<Ctrl-Up-Arrow>
+
+<Up-Arrow>
+
+Next command in history
+
+<Ctrl-Down-Arrow>
+
+<Down-Arrow>
+
+Switch to multi-line editing
+
+ 
+
+<Shift-Return>
+
+ 
+
+*Global actions*
+
+Change focus to editor
+
+/
+
+Toggle fullscreen editor
+
+Esc
+
+ 
+
+*Platform specific*
+
+Mac users
+
+Use Cmd instead of Ctrl

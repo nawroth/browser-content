@@ -1,0 +1,31 @@
+[[remove]]
+=== REMOVE
+
+Remove properties and labels
+
+The `REMOVE` clause is used to remove properties and labels from graph
+elements.
+
+[cols=",",]
+|=======================================================================
+|Reference: |`REMOVE` manual page
+
+|Related: |:help MATCH :help WHERE :help RETURN :help DELETE :help
+Cypher
+|=======================================================================
+
+code,code,runnable----------------------------- code,code,runnable
+MATCH (soren {name: 'Soren'})
+REMOVE soren.age
+RETURN soren
+-----------------------------
+
+Remove Soren's age.
+
+code,code,runnable----------------------------- code,code,runnable
+MATCH (soren {name: 'Soren'})
+REMOVE soren:Intern
+RETURN soren
+-----------------------------
+
+Soren is no longer an intern.

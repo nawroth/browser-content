@@ -1,0 +1,22 @@
+[[return]]
+=== RETURN
+
+data from a query
+
+The `RETURN` clause defines what to include in a query result set,
+specified as a comma separated list of expressions.
+
+[cols=",",]
+|==============================================
+|Reference: |`RETURN` manual page
+|Related: |:help MATCH :help WHERE :help Cypher
+|==============================================
+
+code,code,runnable,standalone-example----------------------------------------------------------------
+code,code,runnable,standalone-example
+MATCH (director:Person)-[:DIRECTED]->(movie)
+RETURN director.name AS Director, collect(movie.title) AS Movies
+----------------------------------------------------------------
+
+Return all directors, each paired with a collection of the movies
+they've directed.

@@ -1,0 +1,89 @@
+import org.asciidoctor.groovydsl.AsciidoctorExtensions
+import org.asciidoctor.Asciidoctor
+import org.asciidoctor.OptionsBuilder
+import org.asciidoctor.SafeMode
+
+buildscript {
+    ext {
+        jrubyVersion = '1.7.23'
+        asciidoctorjVersion = '1.5.3.2'
+        asciidoctorGroovyDslVersion = '1.0.0.Alpha1'
+    }
+
+    dependencies {
+        classpath "org.asciidoctor:asciidoctorj:$asciidoctorjVersion"
+        classpath "org.asciidoctor:asciidoctorj-groovy-dsl:$asciidoctorGroovyDslVersion"
+        classpath "org.jruby:jruby-complete:$jrubyVersion"
+    }
+
+    repositories {
+        jcenter()
+    }
+}
+
+apply plugin: 'base'
+
+defaultTasks 'asciidoctorHtml'
+
+ext {
+    projectVersionTitle = '1.0 ALPHA'
+    projectVersion = '1.0'
+    asciidoctorAttributes = [
+            'project-version'  : projectVersionTitle,
+            'icons'            : 'font',
+            'imagesdir'        : './images',
+            'attribute-missing': 'warn',
+            'toc'              : 'preamble',
+            'sectanchors!'     : '',
+            'leveloffset'      : '+1'
+    ]
+    adoc = null
+}
+
+task('cleanOutputs', dependsOn: ['cleanAsciidoctorHtml']) {
+    description 'Clean the HTML outputs.'
+}
+
+def getAsciidoctor() {
+    if (project.ext.adoc == null) {
+        project.ext.adoc = Asciidoctor.Factory.create()
+    }
+    project.ext.adoc
+}
+
+def asciidocSourceDir = "${projectDir}/src/main/asciidoc"
+def asciidocSourceFile = new File("$asciidocSourceDir/browser.adoc")
+def asciidocResourcesDir = "${projectDir}/src/main/resources"
+def asciidocTemplateDir = new File("$asciidocResourcesDir/erb")
+def htmlOutputDir = "$buildDir/html5"
+
+task('asciidoctorHtml') {
+    description 'Build Asciidoctor HTML output.'
+    inputs.dir asciidocSourceDir
+    inputs.dir asciidocTemplateDir
+    outputs.dir htmlOutputDir
+    doLast {
+        def attrs = project.ext.asciidoctorAttributes
+        def opts = OptionsBuilder.options()
+                .backend('html5')
+                .safe(SafeMode.UNSAFE)
+                .toDir(new File(htmlOutputDir))
+                .mkDirs(true)
+                .attributes(attrs)
+                .templateDir(asciidocTemplateDir)
+        getAsciidoctor().convertFile(asciidocSourceFile, opts.get())
+    }
+}
+
+task('dist', dependsOn: ['asciidoctorHtml']) {
+    description 'Build HTML and PDF outputs.'
+}
+
+task buildScriptDependencies(type: org.gradle.api.tasks.diagnostics.DependencyReportTask) {
+    description 'Print the build script dependencies.'
+    configurations = project.buildscript.configurations
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.9'
+}

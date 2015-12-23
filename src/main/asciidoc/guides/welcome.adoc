@@ -1,0 +1,27 @@
+image:images/welcome-logo.png[image]
+
+\{\{ neo4j.version }}
+
+[[getting-started]]
+=== Getting started
+
+by learning about Neo4j...
+
+ +
+
+* Intro - a guided tour
+* Concepts - GraphDB 101
+* Cypher - query language
+
+[[jump-into-code]]
+=== Jump into code
+
+with a mini graph app...
+
+ +
+
+* The Movie Graph
+
+link:%7B%7B%20motd.callToAction.u%7D%7D[\{\{ motd.callToAction.d }}]
+
+Copyright ©http://neotechnology.com/[Neo Technology] 2002–2015

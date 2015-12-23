@@ -1,0 +1,20 @@
+[[frame.input-commanderror]]
+=== \{\{frame.input | commandError}}
+
+\{\{ motd.unrecognized }}
+
+[width="100%",cols="50%,50%",]
+|=======================================================================
+|You said: |`{{frame.input | uncomment}}`
+
+|Try: a|
+* :help - for general help about using this Browser
+* :help commands - to see available commands
+* http://neo4j.com/docs/[Neo4j Manual] - for detailed information about
+Neo4j
+
+|Keys: a|
+* `< ctrl - ↑ >`  to retrieve previous entry from history.
+* `< ctrl - ↑ >`  to retrieve previous entry from history.
+
+|=======================================================================

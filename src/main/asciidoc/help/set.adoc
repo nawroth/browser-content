@@ -1,0 +1,21 @@
+[[set]]
+=== SET
+
+property updates
+
+The `SET` clause updates properties on nodes and relationships.
+
+[cols=",",]
+|==============================================
+|Reference: |`SET` manual page
+|Related: |:help MATCH :help WHERE :help Cypher
+|==============================================
+
+code,code,runnable---------------------------------------
+code,code,runnable
+MATCH (fan:Person)-[w:WATCHED]->(movie)
+WHERE fan.name = "Mikey"
+SET w.rating = 5
+---------------------------------------
+
+Mikey likes everything, so give any movie he has watched 5 stars.

@@ -1,0 +1,18 @@
+[[commands]]
+=== Commands
+
+Typing commands is 1337
+
+In addition to composing and running Cypher queries, the editor bar up
+above ↑ understands a few client-side commands, which begin with a `:`.
+Without a colon, we'll assume you're trying to enter a Cypher query.
+
+[cols=",",]
+|===================================================================
+|Information: |:help help:help play
+|Server connection: |:help server
+|REST: |:help REST GET:help REST POST:help REST PUT:help REST DELETE
+|Database: |:help schema
+|Editor: |:help clear
+|Command history: |:help history
+|===================================================================

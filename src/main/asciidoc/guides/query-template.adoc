@@ -1,0 +1,177 @@
+[[query-template---create]]
+=== Query Template - Create
+
+Generate nodes and relationships
+
+From Node A
+
+Label
+
+Property
+
+Value
+
+through a Relationship
+
+Type
+
+to Node B
+
+Label
+
+Property
+
+Value
+
+[width="100%",cols="50%,50%",]
+|=======================================================================
+|Using Data |From a node labeled "\{\{nodeLabelA}}" with a property
+called "\{\{propertyKeyA}}" which has value "\{\{propertyValueA}}" ,
+through a relationship of type "\{\{relationshipType}}" to another node
+labeled "\{\{nodeLabelB}}" with a property called "\{\{propertyKeyB}}"
+which has value "\{\{propertyValueB}}"
+
+|Create a|
+Create a "\{\{nodeLabelA}}" node with a property called
+"\{\{propertyKeyA}}" that has value "\{\{propertyValueA}}". (Or create
+Node B)
+
+code,code,runnable,standalone-example-----------------------------------------------------------------------------------------------------
+code,code,runnable,standalone-example
+CREATE (n:{{nodeLabelA | tickitize}} { {{propertyKeyA | tickitize}}: '{{propertyValueA}}' }) RETURN n
+-----------------------------------------------------------------------------------------------------
+
+code,code,runnable,standalone-example-----------------------------------------------------------------------------------------------------
+code,code,runnable,standalone-example
+CREATE (n:{{nodeLabelB | tickitize}} { {{propertyKeyB | tickitize}}: '{{propertyValueB}}' }) RETURN n
+-----------------------------------------------------------------------------------------------------
+
+|Relate a|
+From a "\{\{nodeLabelA}}" node with a "\{\{propertyKeyA}}" property of
+"\{\{propertyValueA}}" create a "\{\{relationshipType}}" relationship to
+a "\{\{nodeLabelB}}" with "\{\{propertyKeyB}}" value
+"\{\{propertyValueB}}".
+
+code,code,runnable,standalone-example----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+code,code,runnable,standalone-example
+MATCH (a:{{nodeLabelA | tickitize}} { {{propertyKeyA | tickitize}}: '{{propertyValueA}}' }), (b:{{nodeLabelB | tickitize}} { {{propertyKeyB | tickitize}}: '{{propertyValueB}}' })
+CREATE (a)-[:{{relationshipType | tickitize}}]->(b)
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+|Merge node a|
+Find or create a "\{\{nodeLabelA}}" node with "\{\{propertyKeyA}}" of
+"\{\{propertyValueA}}".
+
+code,code,runnable,standalone-example----------------------------------------------------------------------------------------------------
+code,code,runnable,standalone-example
+MERGE (n:{{nodeLabelA | tickitize}} { {{propertyKeyA | tickitize}}: '{{propertyValueA}}' }) RETURN n
+----------------------------------------------------------------------------------------------------
+
+|Merge relationship a|
+Find or create a relationship from a "\{\{nodeLabelA}} with
+"\{\{propertyKeyA}}" of "\{\{propertyValueA}}" through a
+"\{\{relationshipType}}" relationship to a "\{\{nodeLabelB}}" node with
+"\{\{propertyKeyB}}" of "\{\{propertyValueB}}".
+
+code,code,runnable,standalone-example----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+code,code,runnable,standalone-example
+MATCH (a:{{nodeLabelA | tickitize}} { {{propertyKeyA | tickitize}}: '{{propertyValueA}}' }), (b:{{nodeLabelB | tickitize}} { {{propertyKeyB | tickitize}}: '{{propertyValueB}}' })
+MERGE (a)-[:{{relationshipType}}]->(b)
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+|=======================================================================
+
+[[query-template---find]]
+=== Query Template - Find
+
+Find data using common graph patterns
+
+From Node A
+
+Label
+
+Property
+
+Value
+
+through a Relationship
+
+Type
+
+to Node B
+
+Label
+
+Property
+
+Value
+
+[width="100%",cols="50%,50%",]
+|=======================================================================
+|Using Data |From a node labeled "\{\{nodeLabelA}}" with a property
+called "\{\{propertyKeyA}}" which has value "\{\{propertyValueA}}" ,
+through a relationship of type "\{\{relationshipType}}" to another node
+labeled "\{\{nodeLabelB}}" with a property called "\{\{propertyKeyB}}"
+which has value "\{\{propertyValueB}}"
+
+|Find one a|
+Find a node labeled "\{\{nodeLabelA}}" with a property called
+"\{\{propertyKeyA}}" that has value "\{\{propertyValueA}}".
+
+code,code,runnable,standalone-example----------------------------------------------------------------------------------------------------
+code,code,runnable,standalone-example
+MATCH (n:{{nodeLabelA | tickitize}} { {{propertyKeyA | tickitize}}: '{{propertyValueA}}' }) RETURN n
+----------------------------------------------------------------------------------------------------
+
+|Find related neighbors a|
+From a "\{\{nodeLabelA}}" node with a "\{\{propertyKeyA}}" of
+"\{\{propertyValueA}}" find neighbors related by
+"\{\{relationshipType}}".
+
+code,code,runnable,standalone-example-------------------------------------------------------------------------------------------------------------------------------------------------------------
+code,code,runnable,standalone-example
+MATCH (n:{{nodeLabelA| tickitize}} { {{propertyKeyA | tickitize}}: '{{propertyValueA}}' })-[:{{relationshipType | tickitize}}]-(neighbors) RETURN n,neighbors
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+|Variable length paths a|
+From a "\{\{nodeLabelA}}" node with a "\{\{propertyKeyA}}" of
+"\{\{propertyValueA}}" follow "\{\{relationshipType}}" relationships up
+to \{\{relationshipDepth}} hops away.
+
+code,code,runnable,standalone-example----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+code,code,runnable,standalone-example
+MATCH (n:{{nodeLabelA}} { {{propertyKeyA | tickitize}}: '{{propertyValueA}}' })-[:{{relationshipType | tickitize}}*1..{{relationshipDepth}}]-(neighbors) RETURN n, collect(DISTINCT neighbors)
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+|Shortest path a|
+From a "\{\{nodeLabelA}}" node with a "\{\{propertyKeyA}}" of
+"\{\{propertyValueA}}" find the shortest "\{\{relationshipType}}" path
+to a "\{\{nodeLabelB}}" node with "\{\{propertyKeyB}}" of
+"\{\{propertyValueB}}"
+
+code,code,runnable,standalone-example----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+code,code,runnable,standalone-example
+MATCH p=shortestPath(
+  (a:{{nodeLabelA | tickitize}} { {{propertyKeyA | tickitize}}: '{{propertyValueA}}' })-[:{{relationshipType | tickitize}}]-(b:{{nodeLabelB | tickitize}} { {{propertyKeyB | tickitize}}: '{{propertyValueB}}'})
+)
+RETURN p
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+|=======================================================================
+
+[[next-steps]]
+=== Next steps
+
+[[more-code]]
+=== More code
+
+* Northwind Graph - from RDBMS to graph
+* Movie Graph - common ad-hoc queries
+* Cypher - query language fundamentals
+
+[[reference]]
+=== Reference
+
+* http://neo4j.com/developer[Developer resources]
+* http://neo4j.com/docs/%7B%7Bneo4j.version%20%7C%20neo4jdoc%20%7D%7D/[Neo4j
+Manual]

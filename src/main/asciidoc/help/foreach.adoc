@@ -1,0 +1,21 @@
+[[foreach]]
+=== FOREACH
+
+Operate on a collection
+
+The `FOREACH` clause is used to update data within a collection, whether
+components of a path, or result of aggregation.
+
+[cols=",",]
+|==========================================================
+|Reference: |`FOREACH` manual page
+|Related: |:help CREATE :help DELETE :help SET :help Cypher
+|==========================================================
+
+code,code,runnable--------------------------------------------------------------
+code,code,runnable
+MATCH p = (ups)<-[DEPENDS_ON]-(device) WHERE ups.id='EPS-7001'
+FOREACH (n IN nodes(p) | SET n.available = FALSE )
+--------------------------------------------------------------
+
+Mark all devices plugged into a failed UPS as unavailable.

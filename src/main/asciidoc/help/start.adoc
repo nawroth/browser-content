@@ -1,0 +1,13 @@
+[[start]]
+=== START
+
+with known data
+
+The `START`clause should only be used when accessing legacy indexes. +
+In all other cases, use `MATCH`instead.
+
+[cols=",",]
+|===============================================
+|Reference: |`START` manual page
+|Related: |:help MATCH :help RETURN :help Cypher
+|===============================================

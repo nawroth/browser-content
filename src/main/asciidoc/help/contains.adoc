@@ -1,0 +1,22 @@
+[[contains]]
+=== CONTAINS
+
+Matching within in a string
+
+The occurance of a string within a string can be matched using
+`CONTAINS`. The matching is case-sensitive.
+
+[cols=",",]
+|===========================================
+|Reference: |`WHERE` manual page
+|Related: |:help STARTS WITH :help ENDS WITH
+|===========================================
+
+code,code,runnable,standalone-example----------------------------------
+code,code,runnable,standalone-example
+MATCH (director:Person)
+WHERE director.name CONTAINS 'ete'
+RETURN director.name
+----------------------------------
+
+Match directors with a name that contains with "eter".

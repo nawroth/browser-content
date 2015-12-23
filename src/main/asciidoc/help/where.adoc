@@ -1,0 +1,25 @@
+[[where]]
+=== WHERE
+
+filter results
+
+The `WHERE` clause imposes conditions on the data within a potentially
+matching path, filtering the result set of a `MATCH`.
+
+`MATCH` descibes the structure, and `WHERE` specfies the content of a
+query.
+
+[cols=",",]
+|===============================================
+|Reference: |`WHERE` manual page
+|Related: |:help MATCH :help RETURN :help Cypher
+|===============================================
+
+code,code,runnable,standalone-example--------------------------------------------
+code,code,runnable,standalone-example
+MATCH (director:Person)-[:DIRECTED]->(movie)
+WHERE director.name = "Steven Spielberg"
+RETURN movie.title
+--------------------------------------------
+
+Find all the many fine films directed by Steven Spielberg.

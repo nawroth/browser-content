@@ -1,0 +1,22 @@
+[[create]]
+=== CREATE
+
+Insert graph data
+
+The `CREATE` clause is used to create data by specifying named nodes and
+relationships with inline properties.
+
+[cols=",",]
+|=================================================================
+|Reference: |`CREATE` manual page
+|Related: |:help SET :help CREATE UNIQUE :help MERGE :help Cypher 
+|=================================================================
+
+code,code,runnable-----------------------------------------------------------------
+code,code,runnable
+CREATE (le:Person {name:"Euler"}),(db:Person {name:"Bernoulli"}),
+  (le)-[:KNOWS {since:1768}]->(db)
+RETURN le, db
+-----------------------------------------------------------------
+
+Create two related people, returning them.
