@@ -28,9 +28,8 @@ ext {
             'experimental'     : '',
             'icons'            : 'font',
             'imagesdir'        : './images',
-            'leveloffset'      : '1',
             'sectanchors!'     : '',
-            'toc'              : 'preamble',
+            'toc'              : '',
     ]
     adoc = null
 }

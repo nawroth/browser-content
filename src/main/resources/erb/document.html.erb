@@ -242,6 +242,19 @@
 </style>
 <article class="guide asciidoc">
   <carousel class="deck container-fluid">
+    <% if has_header? %>
+        <slide class="row-fluid">
+          <div class="col-sm-12">
+            <h2><%= @header.title %></h2>
+            <% if (attr? :toc) && (attr? 'toc-placement', 'auto') %>
+                <div id="toc" class="<%= attr 'toc-class', 'toc' %>">
+                  <%= converter.convert self, 'outline' %>
+                </div>
+            <% end %>
+          </div>
+          </div>
+        </slide>
+    <% end %>
     <%= content %>
   </carousel>
 </article>

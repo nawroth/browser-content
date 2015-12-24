@@ -9,6 +9,16 @@
         </div>
       </div>
     </slide>
+<% elsif slevel == 1 %>
+    <slide class="row-fluid">
+      <div class="col-sm-12">
+        <h3><%= title %></h3>
+        <br/>
+        <div>
+          <%= content %>
+        </div>
+      </div>
+    </slide>
 <% else %>
     <%= content %>
 <% end %>

@@ -1,3 +1,5 @@
+= Get started with Neo4j Browser
+
 == Get Started
 
 Start by typing `:play intro` into the command-line and pressing kbd:[Enter].
@@ -145,7 +147,7 @@ Favorites are stored in your local browser storage, so they are only available p
 --
 
 
-=== Advanced Styling
+== Advanced Styling
 
 ////
 ++++
