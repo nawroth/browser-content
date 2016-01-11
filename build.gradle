@@ -5,7 +5,7 @@ import org.asciidoctor.SafeMode
 buildscript {
     ext {
         jrubyVersion = '1.7.23'
-        asciidoctorjVersion = '1.5.3.2'
+        asciidoctorjVersion = '1.5.4'
     }
 
     dependencies {
